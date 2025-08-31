@@ -1,0 +1,460 @@
+:root {
+    --primary-green: #2E8B57;
+    --secondary-green: #3AA655;
+    --light-green: #E8F5E9;
+    --white: #FFFFFF;
+    --cream: #FFFDD0;
+    --dark-text: #333333;
+    --light-text: #666666;
+    --accent-orange: #FF8C00;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --error-red: #ff4d4d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--cream);
+    color: var(--dark-text);
+    line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+    color: var(--white);
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.logo-icon {
+    font-size: 2.5rem;
+    margin-right: 0.5rem;
+}
+
+.logo-text {
+    font-size: 2.2rem;
+    font-weight: bold;
+}
+
+.tagline {
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+/* Auth Container */
+.auth-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.auth-tabs {
+    display: flex;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--light-green);
+}
+
+.auth-tab {
+    flex: 1;
+    text-align: center;
+    padding: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--light-text);
+    transition: all 0.3s;
+}
+
+.auth-tab.active {
+    color: var(--primary-green);
+    border-bottom: 3px solid var(--primary-green);
+}
+
+.auth-form {
+    display: none;
+}
+
+.auth-form.active {
+    display: block;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-green);
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: var(--primary-green);
+    outline: none;
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--primary-green);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.auth-btn:hover {
+    background-color: var(--secondary-green);
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--light-text);
+}
+
+.auth-footer a {
+    color: var(--primary-green);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: var(--error-red);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    display: none;
+}
+
+/* User Menu */
+.user-menu {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    display: none;
+}
+
+.user-greeting {
+    margin-right: 1rem;
+    color: var(--white);
+}
+
+.user-btn {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.user-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Main App Content (initially hidden) */
+.app-content {
+    display: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.search-section {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.search-title {
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.ingredients-input {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.ingredient-tag {
+    background-color: var(--light-green);
+    color: var(--primary-green);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+.ingredient-tag .remove {
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+.search-box {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+#ingredient-search {
+    flex: 1;
+    padding: 0.8rem;
+    border: 2px solid var(--primary-green);
+    border-radius: 5px 0 0 5px;
+    font-size: 1rem;
+}
+
+#add-ingredient {
+    background-color: var(--primary-green);
+    color: var(--white);
+    border: none;
+    padding: 0 1.2rem;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.suggested-ingredients {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.suggested-ingredient {
+    background-color: var(--light-green);
+    color: var(--primary-green);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.suggested-ingredient:hover {
+    background-color: var(--primary-green);
+    color: var(--white);
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.filter-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-green);
+    font-weight: 500;
+}
+
+.filter-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid var(--primary-green);
+    border-radius: 5px;
+    background-color: var(--white);
+}
+
+#search-btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--accent-orange);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 1.5rem;
+}
+
+#search-btn:hover {
+    background-color: #e67e00;
+}
+
+.results-section {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.results-title {
+    color: var(--primary-green);
+}
+
+.results-count {
+    color: var(--light-text);
+    font-size: 1.1rem;
+}
+
+.recipe-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.recipe-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+    border-left: 4px solid var(--primary-green);
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+}
+
+.recipe-icon {
+    background-color: var(--primary-green);
+    color: var(--white);
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.recipe-content {
+    padding: 1.5rem;
+}
+
+.recipe-title {
+    color: var(--primary-green);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.recipe-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    color: var(--light-text);
+}
+
+.recipe-ingredients {
+    margin-bottom: 1rem;
+    color: var(--dark-text);
+}
+
+.recipe-ingredients span {
+    font-weight: 500;
+    color: var(--primary-green);
+}
+
+.match-percentage {
+    display: inline-block;
+    background-color: var(--accent-orange);
+    color: var(--white);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+.view-recipe {
+    display: block;
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--primary-green);
+    color: var(--white);
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.view-recipe:hover {
+    background-color: var(--secondary-green);
+}
+
+footer {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+    .filters {
+        flex-direction: column;
+    }
+    
+    .filter-group {
+        width: 100%;
+    }
+    
+    .recipe-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .user-menu {
+        position: static;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+}

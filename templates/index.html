@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jiko - African Recipe Recommender</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-mortar-pestle logo-icon"></i>
+            <div class="logo-text">Jiko</div>
+        </div>
+        <p class="tagline">Discover your next African meal with what you have</p>
+        
+        <div class="user-menu" id="user-menu">
+            <div class="user-greeting" id="user-greeting"></div>
+            <button class="user-btn" id="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <div class="auth-container" id="auth-container">
+        <div class="auth-tabs">
+            <div class="auth-tab active" data-tab="login">Login</div>
+            <div class="auth-tab" data-tab="signup">Sign Up</div>
+        </div>
+        
+        <form class="auth-form active" id="login-form">
+            <div class="form-group">
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" placeholder="Enter your email" required>
+                <div class="error-message" id="login-email-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" placeholder="Enter your password" required>
+                <div class="error-message" id="login-password-error"></div>
+            </div>
+            
+            <button type="submit" class="auth-btn">Login</button>
+            
+            <div class="auth-footer">
+                Don't have an account? <a href="#" id="switch-to-signup">Sign up</a>
+            </div>
+        </form>
+        
+        <form class="auth-form" id="signup-form">
+            <div class="form-group">
+                <label for="signup-name">Full Name</label>
+                <input type="text" id="signup-name" placeholder="Enter your full name" required>
+                <div class="error-message" id="signup-name-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="signup-email">Email</label>
+                <input type="email" id="signup-email" placeholder="Enter your email" required>
+                <div class="error-message" id="signup-email-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="signup-password">Password</label>
+                <input type="password" id="signup-password" placeholder="Create a password" required>
+                <div class="error-message" id="signup-password-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="signup-confirm-password">Confirm Password</label>
+                <input type="password" id="signup-confirm-password" placeholder="Confirm your password" required>
+                <div class="error-message" id="signup-confirm-password-error"></div>
+            </div>
+            
+            <button type="submit" class="auth-btn">Create Account</button>
+            
+            <div class="auth-footer">
+                Already have an account? <a href="#" id="switch-to-login">Login</a>
+            </div>
+        </form>
+    </div>
+
+    <div class="app-content" id="app-content">
+        <div class="container">
+            <section class="search-section">
+                <h2 class="search-title">What's in your kitchen?</h2>
+                
+                <div class="ingredients-input" id="selected-ingredients">
+                    <!-- Selected ingredients will appear here -->
+                </div>
+                
+                <div class="search-box">
+                    <input type="text" id="ingredient-search" placeholder="Add ingredients (e.g., plantain, chicken, tomatoes)">
+                    <button id="add-ingredient"><i class="fas fa-plus"></i></button>
+                </div>
+                
+                <div class="suggested-ingredients">
+                    <div class="suggested-ingredient" data-ingredient="plantain">Plantain</div>
+                    <div class="suggested-ingredient" data-ingredient="cassava">Cassava</div>
+                    <div class="suggested-ingredient" data-ingredient="yam">Yam</div>
+                    <div class="suggested-ingredient" data-ingredient="rice">Rice</div>
+                    <div class="suggested-ingredient" data-ingredient="chicken">Chicken</div>
+                    <div class="suggested-ingredient" data-ingredient="beef">Beef</div>
+                    <div class="suggested-ingredient" data-ingredient="fish">Fish</div>
+                    <div class="suggested-ingredient" data-ingredient="tomatoes">Tomatoes</div>
+                    <div class="suggested-ingredient" data-ingredient="onions">Onions</div>
+                    <div class="suggested-ingredient" data-ingredient="peppers">Peppers</div>
+                </div>
+                
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="region-filter">Region</label>
+                        <select id="region-filter">
+                            <option value="all">All Regions</option>
+                            <option value="west">West Africa</option>
+                            <option value="east">East Africa</option>
+                            <option value="south">Southern Africa</option>
+                            <option value="north">North Africa</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="time-filter">Max Cooking Time</label>
+                        <select id="time-filter">
+                            <option value="any">Any Time</option>
+                            <option value="30">30 minutes or less</option>
+                            <option value="60">1 hour or less</option>
+                            <option value="120">2 hours or less</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="diet-filter">Dietary Preference</label>
+                        <select id="diet-filter">
+                            <option value="any">Any</option>
+                            <option value="vegetarian">Vegetarian</option>
+                            <option value="vegan">Vegan</option>
+                            <option value="gluten-free">Gluten-Free</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button id="search-btn">Find Recipes</button>
+            </section>
+            
+            <section class="results-section">
+                <div class="results-header">
+                    <h2 class="results-title">Recommended Recipes</h2>
+                    <div class="results-count">Showing <span id="results-number">6</span> recipes</div>
+                </div>
+                
+                <div class="recipe-cards" id="recipe-cards-container">
+                    <!-- Recipe cards will be generated here -->
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>Jiko - African Recipe Recommender &copy; 2025</p>
+            <p>Discover the rich culinary traditions of Africa with ingredients you have</p>
+        </footer>
+    </div>
+
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

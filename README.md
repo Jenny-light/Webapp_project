@@ -6,7 +6,7 @@ The web application was built with the help of Deepseek and ChatGPT
 
 Deployed on **Render**.
 
----
+----
 
 ## 🚀 Features
 - 🔐 **User Authentication** (Register/Login)

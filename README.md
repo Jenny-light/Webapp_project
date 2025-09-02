@@ -85,7 +85,7 @@ John Doe	johndoe@email.com
 Mary Smith	marysmith@email.com
 	Database & API Integration
 Alex Johnson	alexjohnson@email.com
-	Project Manager / QA
+	Project Manager / QA.
 
 ##📜 License
 

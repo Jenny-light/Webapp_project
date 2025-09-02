@@ -30,15 +30,18 @@ Deployed on **Render**.
 ## 📂 Project Structure
 JIKO/
 │── app.py # Flask application entry point
+
 │── requirements.txt # Python dependencies
+
 │── README.md # Project documentation
+
 │── static/ # CSS, JS, images
 │ ├── style.css
 │ └── script.js
+
 │── templates/ # HTML templates (Jinja2)
 │ ├── index.html
-│ ├── login.html
-│ └── register.html 
+
 
 
 ---
@@ -71,23 +74,31 @@ OPENAI_API_KEY=your_openai_api_key_here
 6. Visit
    http://127.0.0.1:5000/
 
+7. Live app
+   https://jiko-app.onrender.com/
+
+8. Pitch Deck
+   https://gamma.app/docs/JIKO-FOOD-APP-Fighting-Hunger-Empowering-Communities-c08hqtwqxyg0lwl
+
 ## 🌍 Deployment
 
 The app is deployed using Render with Gunicorn: 
 gunicorn app:app
 
 ## 👥 Team Members
-Name	Email	Role
-Jennifer Omoregie	jennifer@email.com
-	Data & Backend Developer
-John Doe	johndoe@email.com
-	Frontend Developer (UI/UX)
-Mary Smith	marysmith@email.com
-	Database & API Integration
-Alex Johnson	alexjohnson@email.com
-	Project Manager / QA.
+Name: Jennifer Omoregier 
 
-##📜 License
+Email: jennylightomoregie@gmail.com
+
+Role: Frontend, Backend and Data Developer, Deployment
+
+Name: Isreal Ango 
+
+Email: angoyacham007@gmail.com
+
+Role: Database & API Integration, Pitch Deck Presentation
+	
+## 📜 License
 
 This project is licensed under the MIT License – see the LICENSE
  file for details.

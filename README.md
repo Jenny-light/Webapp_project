@@ -19,7 +19,7 @@ Deployed on **Render**.
 ---
 
 ## 🛠️ Tech Stack
-**Frontend**: HTML5, CSS3, JavaScript  
+**Frontend**: HTML5, CSS, JavaScript  
 **Backend**: Python (Flask)  
 **Database**: MySQL  
 **AI**: OpenAI API  
